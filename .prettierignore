@@ -1,0 +1,10 @@
+#Ignore artifacts:
+
+**/coverage
+**/package.json
+**/.git
+**/node_modules
+yarn.lock
+**/.pem
+**/.gitignore
+**/.next

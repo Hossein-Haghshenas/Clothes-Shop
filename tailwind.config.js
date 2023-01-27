@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}", "./data/index.js"],
   theme: {
-    extend: {},
+    extend: {
+      transitionProperty: {
+        height: "height",
+      },
+    },
     screens: {
       xl: { max: "1200px" },
       lg: { max: "991px" },

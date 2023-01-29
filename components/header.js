@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ListBulletIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
-import Button from "./button";
+import Button from "./utils/button";
 
 const menu = [
   { name: "Home", url: "/", id: 1 },

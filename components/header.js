@@ -8,8 +8,9 @@ import Button from "./utils/button";
 
 const menu = [
   { name: "Home", url: "/", id: 1 },
-  { name: "About Us", url: "/about", id: 2 },
-  { name: "Contact Us", url: "/contact", id: 3 },
+  { name: "Products", url: "/products", id: 2 },
+  { name: "About Us", url: "/about", id: 3 },
+  { name: "Contact Us", url: "/contact", id: 4 },
 ];
 
 const Header = () => {
@@ -26,10 +27,10 @@ const Header = () => {
         className={clsx("block sm:hidden z-10", showMenu && "bg-sky-200 sm:!block absolute top-16 left-0 py-5 w-full")}
         animate={{ height: showMenu ? "10rem" : "2rem" }}
       >
-        <ul className={clsx("flex sm:flex-col justify-center items-center gap-4")}>
+        <ul className={clsx("flex sm:flex-col justify-center items-center gap-4 md:gap-1")}>
           {menu?.map((item) => (
             <motion.li
-              className="px-4 py-1 rounded-xl bg-sky-200"
+              className="px-4 md:px-2 py-1 rounded-xl bg-sky-200"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               whileHover={{ backgroundColor: "#9bc8ffff", transition: { duration: 0.5 } }}

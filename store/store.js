@@ -1,17 +1,18 @@
-import axios from "axios";
 import { create } from "zustand";
-
+import { getAllProducts, getCategories } from "../api/products";
 export const useProductsStore = create((set) => ({
   products: [],
   categories: [],
   getProducts: async () => {
-    const res = await axios.get("https://api.escuelajs.co/api/v1/products/?categoryId=1");
-    set({ products: await res.data });
+    const res = getAllProducts();
+    res.then((res) => set({ products: res }));
   },
   getCategories: async () => {
-    const res = await axios.get("https://api.escuelajs.co/api/v1/categories");
+    const res = getCategories().then();
+
     set({ categories: await res.data });
   },
 }));
 
 useProductsStore.getState().getProducts();
+useProductsStore.getState().getCategories();

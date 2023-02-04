@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { getAllProducts, getCategories } from "../api/products";
+
 export const useProductsStore = create((set) => ({
   products: [],
   categories: [],
@@ -8,9 +9,8 @@ export const useProductsStore = create((set) => ({
     res.then((res) => set({ products: res }));
   },
   getCategories: async () => {
-    const res = getCategories().then();
-
-    set({ categories: await res.data });
+    const res = getCategories();
+    res.then((res) => set({ categories: res }));
   },
 }));
 

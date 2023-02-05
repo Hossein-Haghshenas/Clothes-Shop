@@ -1,30 +1,42 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BorderedTitle, Container } from "../utils";
+import { BorderedTitle, Container, Loading } from "../utils";
 
 const ProductsCategory = ({ categories }) => {
   return (
     <>
       <Container className="mx-8" flex col gap2>
         <BorderedTitle title="Categories" />
-        <Container wFull justifyCenter flex gap2 wrap>
-          {categories?.map((category) => {
-            const { id, name, image, count } = category;
-            return (
-              <Link className="w-[45%] md:w-full" href={`products/${name}`}>
-                <Container className="bg-slate-300 transition ease-in delay-150 hover:bg-sky-200 cursor-pointer" flex gap1 key={id}>
-                  <section>
-                    <Image className="w-[10rem] sm:w-[8rem]" src={image} width={340} height={280} alt={name} />
-                  </section>
-                  <Container className="sm:gap-4" flex col gap2>
-                    <h4 className="font-semibold text-[25px] sm:text-[20px] mt-6">{name}</h4>
-                    <p>{count} Items Available</p>
+        {categories.length < 1 ? (
+          <Loading />
+        ) : (
+          <Container wFull justifyCenter flex gap2 wrap>
+            {categories?.map((category) => {
+              const { id, title, image, productsCount } = category;
+              return (
+                <Link className="w-[45%] md:w-full" href={`products/${title}`} key={id}>
+                  <Container className="bg-slate-300 transition ease-in delay-150 hover:bg-sky-200 cursor-pointer" flex gap1>
+                    <section>
+                      <Image
+                        className="w-[10rem] sm:w-[8rem] h-[10rem]"
+                        src={image}
+                        width={400}
+                        height={400}
+                        alt={title}
+                        placeholder="blur"
+                        blurDataURL={image}
+                      />
+                    </section>
+                    <Container className="sm:gap-4" flex col gap2>
+                      <h4 className="font-semibold text-[25px] sm:text-[20px] mt-6">{title}</h4>
+                      <p>{productsCount} Items Available</p>
+                    </Container>
                   </Container>
-                </Container>
-              </Link>
-            );
-          })}
-        </Container>
+                </Link>
+              );
+            })}
+          </Container>
+        )}
       </Container>
     </>
   );

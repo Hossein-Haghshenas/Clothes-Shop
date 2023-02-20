@@ -1,10 +1,11 @@
 import { Header, Footer } from "../index";
+import clsx from "clsx";
 
-const Wrapper = ({ children }) => {
+const Wrapper = ({ children, className }) => {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className={clsx("min-h-[29.8vh]", className && className)}>{children}</main>
       <Footer />
     </>
   );

@@ -17,6 +17,7 @@ const Container = ({
   gap3,
   wrap,
   reverse,
+  ...rest
 }) => {
   return (
     <>
@@ -38,6 +39,7 @@ const Container = ({
           wrap && "flex-wrap",
           reverse && "flex-row-reverse",
         )}
+        {...rest}
       >
         {children}
       </section>

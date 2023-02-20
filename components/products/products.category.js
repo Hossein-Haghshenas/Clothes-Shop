@@ -5,7 +5,7 @@ import { BorderedTitle, Container, Loading } from "../utils";
 const ProductsCategory = ({ categories }) => {
   return (
     <>
-      <Container className="mx-8" flex col gap2>
+      <Container className="mx-8 pb-8" flex col gap2>
         <BorderedTitle title="Categories" />
         {categories.length < 1 ? (
           <Loading />

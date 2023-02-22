@@ -10,7 +10,6 @@ const menu = [
   { name: "Home", url: "/", id: 1 },
   { name: "Products", url: "/products", id: 2 },
   { name: "About Us", url: "/about", id: 3 },
-  { name: "Contact Us", url: "/contact", id: 4 },
 ];
 
 const Header = () => {

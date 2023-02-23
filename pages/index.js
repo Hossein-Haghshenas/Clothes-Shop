@@ -10,8 +10,8 @@ const Home = () => {
   const productsData = useProductsStore().products;
 
   useEffect(() => {
-    setPopularProducts(productsData.slice(0, 6));
-    setBlogPosts(productsData.slice(10, 13));
+    setPopularProducts(productsData?.slice(0, 6));
+    setBlogPosts(productsData?.slice(0, 6));
   }, [productsData]);
 
   return (

@@ -1,8 +1,13 @@
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ListBulletIcon } from "@heroicons/react/24/solid";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+
 import clsx from "clsx";
 import Button from "./utils/button";
 
@@ -13,7 +18,9 @@ const menu = [
 ];
 
 const Header = () => {
+  const { push } = useRouter();
   const [showMenu, setShowMenu] = useState(false);
+  const { data, status } = useSession();
 
   return (
     <header className="w-full flex justify-between items-center relative bg-sky-200 py-4 px-3 shadow-md">
@@ -40,11 +47,25 @@ const Header = () => {
           ))}
         </ul>
       </motion.section>
-      <section className="flex items-center gap-3">
+      <section className="flex items-center justify-center gap-3">
         <section>
-          <Button>
-            <span className="pr-2">Login</span> | <span className="pl-2">Signup</span>
-          </Button>
+          {status === "unauthenticated" ? (
+            <Button onClick={() => push("/login")}>
+              <span className="pr-2">Login</span> | <span className="pl-2">Signup</span>
+            </Button>
+          ) : (
+            <Button onClick={() => signOut()}>
+              <span className="pr-2">Logout</span>
+            </Button>
+          )}
+        </section>
+        <section>
+          <button type="button" className="">
+            <AiOutlineShoppingCart className="w-8 h-8" />
+            <span className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
+              20
+            </span>
+          </button>
         </section>
         <section>
           <button type="button" className="hidden sm:flex" onClick={() => setShowMenu(!showMenu)}>

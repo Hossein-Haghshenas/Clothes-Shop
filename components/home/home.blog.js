@@ -5,7 +5,7 @@ import { Button, Container } from "../utils";
 const HomeBlog = ({ blogData }) => {
   return (
     <>
-      <Container flex col alignCenter gap2>
+      <Container className="pb-12" flex col alignCenter gap2>
         <section>
           <h3 className="font-bold text-[25px]">Our Blog</h3>
         </section>

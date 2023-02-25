@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { BorderedTitle, Card, Container, Wrapper } from "../../components/utils";
-import { useProductsStore } from "../../store/store";
+import { BorderedTitle, Card, Container, Wrapper } from "../../../components/utils";
+import { useProductsStore } from "../../../store/store";
 
 const Category = () => {
   const {
@@ -14,7 +14,6 @@ const Category = () => {
     const filteredData = productsData.filter((product) => product.category === category);
     setFinalData(filteredData);
   }, [productsData]);
-  console.log(productsData);
 
   return (
     <>

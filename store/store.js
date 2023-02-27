@@ -16,3 +16,20 @@ export const useProductsStore = create((set) => ({
 
 useProductsStore.getState().getProducts();
 useProductsStore.getState().getCategories();
+
+export const useFavoritesStore = create((set) => ({
+  favorites: [],
+  setFavorites: function (title, id) {
+    set((state) => {
+      if (!this.favorites.includes(title)) {
+        return {
+          favorites: [...state.favorites, title],
+        };
+      } else {
+        return {
+          favorites: [...state.favorites.filter((item) => item !== title)],
+        };
+      }
+    });
+  },
+}));

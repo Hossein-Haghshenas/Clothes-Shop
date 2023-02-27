@@ -10,6 +10,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import clsx from "clsx";
 import Button from "./utils/button";
 import Cart from "./cart";
+import { useCartStore } from "../store/store";
 
 const menu = [
   { name: "Home", url: "/", id: 1 },
@@ -22,6 +23,7 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const { data, status } = useSession();
+  const cartProducts = useCartStore();
 
   return (
     <>
@@ -64,8 +66,8 @@ const Header = () => {
           <section>
             <button type="button" onClick={() => setOpenCart(!openCart)}>
               <AiOutlineShoppingCart className="w-8 h-8" />
-              <span className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
-                20
+              <span className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-[#a50aff] border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
+                {cartProducts?.cart.length}
               </span>
             </button>
           </section>

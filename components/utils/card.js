@@ -1,25 +1,43 @@
-import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { AiFillStar, AiOutlineStar, AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useCartStore, useFavoritesStore } from "../../store/store";
 import Button from "./button";
 import Container from "./container";
 
-const Card = ({
-  data: {
+const Card = ({ data }) => {
+  const {
     title,
+    id,
     image,
     price,
+    category,
     rating: { rate, count },
-  },
-}) => {
-  const [like, setLike] = useState(false);
+  } = data;
+
+  const [favorites, setFavorites] = useState();
+  const favoriteProducts = useFavoritesStore();
+  const cartProducts = useCartStore();
+
+  const likeHandler = () => {
+    favoriteProducts?.setFavorites(title, id);
+    localStorage.setItem("favorites", favoriteProducts.favorites);
+    const getFavorites = localStorage.getItem("favorites");
+    setFavorites(getFavorites);
+  };
+
   return (
     <>
       <Container className="w-[20rem] border-[1px] border-slate-300 rounded transition-shadow duration-300 hover:shadow-2xl" flex col>
         <section className="relative">
           <Image className="w-full h-[15rem] rounded-t" src={image} width={400} height={400} alt={title} placeholder="blur" blurDataURL={image} />
-          <span onClick={() => setLike(!like)} className="absolute top-4 right-4 text-[1.5rem] cursor-pointer">
-            {like ? <AiFillHeart className="text-red-600" /> : <AiOutlineHeart className="text-white transition-all hover:text-red-600" />}
+          <span onClick={likeHandler} className="absolute top-4 right-4 text-[1.5rem] cursor-pointer">
+            {favorites?.includes(title) ? (
+              <AiFillHeart className="text-red-600" />
+            ) : (
+              <AiOutlineHeart className="text-white transition-all hover:text-red-600" />
+            )}
           </span>
         </section>
         <section className="p-4">
@@ -37,7 +55,19 @@ const Card = ({
               ))}
               <span className="p-2 text-gray-600 text-sm">({count})</span>
             </span>
-            <Button>Add to Cart</Button>
+            <Container flex justifyAround>
+              <Button
+                onClick={() => {
+                  cartProducts.setCartProducts(data);
+                  cartProducts.setGetTotals();
+                }}
+              >
+                Buy Now
+              </Button>
+              <Button>
+                <Link href={`${category}/${id}`}>Product Details</Link>
+              </Button>
+            </Container>
           </Container>
         </section>
       </Container>

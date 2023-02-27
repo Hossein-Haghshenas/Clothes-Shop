@@ -33,3 +33,34 @@ export const useFavoritesStore = create((set) => ({
     });
   },
 }));
+
+export const useCartStore = create((set) => ({
+  cart: [],
+  cartTotalCount: 0,
+  cartTotalAmount: 0,
+  setCartProducts: (product) => {
+    const products = useCartStore.getState((state) => state).cart;
+    const itemIndex = products.findIndex((item) => item.id === product.id);
+
+    if (itemIndex < 0) {
+      const temp = { ...product, productCount: 1 };
+      set((state) => ({ cart: [...state.cart, temp] }));
+    } else {
+      products[itemIndex].productCount += 1;
+    }
+  },
+  removeCartProducts: (product) => {
+    set((state) => ({ cart: [...state.cart.filter((item) => item !== product)] }));
+  },
+  removeAllCartProducts: () => set({ cart: [] }),
+  setGetTotals: function () {
+    const products = useCartStore.getState((state) => state).cart;
+
+    const amounts =
+      products.length !== 0 ? products.map((product) => product.price.replace(",", ".") * product.productCount).reduce((a, b) => a + b) : 0;
+    const counts = products.length !== 0 ? products.map((product) => product.productCount).reduce((a, b) => a + b) : 0;
+    console.log(counts);
+
+    set({ cartTotalCount: counts, cartTotalAmount: amounts });
+  },
+}));

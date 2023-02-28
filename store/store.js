@@ -36,8 +36,13 @@ export const useFavoritesStore = create((set) => ({
 
 export const useCartStore = create((set) => ({
   cart: [],
+  openCart: false,
   cartTotalCount: 0,
   cartTotalAmount: 0,
+  setOpenCart: () =>
+    set((state) => ({
+      openCart: !state.openCart,
+    })),
   setCartProducts: (product) => {
     const products = useCartStore.getState((state) => state).cart;
     const itemIndex = products.findIndex((item) => item.id === product.id);

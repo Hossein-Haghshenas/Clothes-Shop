@@ -21,7 +21,6 @@ const menu = [
 const Header = () => {
   const { push } = useRouter();
   const [showMenu, setShowMenu] = useState(false);
-  const [openCart, setOpenCart] = useState(false);
   const { data, status } = useSession();
   const cartProducts = useCartStore();
 
@@ -64,10 +63,10 @@ const Header = () => {
             )}
           </section>
           <section>
-            <button type="button" onClick={() => setOpenCart(!openCart)}>
+            <button type="button" onClick={() => cartProducts.setOpenCart()}>
               <AiOutlineShoppingCart className="w-8 h-8" />
               <span className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-[#a50aff] border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
-                {cartProducts?.cart.length}
+                {cartProducts?.cartTotalCount}
               </span>
             </button>
           </section>
@@ -78,7 +77,7 @@ const Header = () => {
           </section>
         </section>
       </header>
-      {openCart ? <Cart /> : ""}
+      {cartProducts.openCart ? <Cart /> : ""}
     </>
   );
 };

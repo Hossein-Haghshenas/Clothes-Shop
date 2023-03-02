@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Button, Container, Loading, Wrapper } from "../../../components/utils";
-import { useProductsStore } from "../../../store/store";
+import { useCartStore, useProductsStore } from "../../../store/store";
 
 const ProductDetails = () => {
   const {
@@ -12,6 +12,7 @@ const ProductDetails = () => {
   } = useRouter();
   const [finalData, setFinalData] = useState({});
   const productsData = useProductsStore().products;
+  const cartProducts = useCartStore();
 
   useEffect(() => {
     const filteredData = productsData.filter((product) => Number(product.id) === Number(productId));
@@ -52,7 +53,13 @@ const ProductDetails = () => {
               <p>{description}</p>
             </Container>
             <section>
-              <Button>Add to cart</Button>
+              <Button
+                onClick={() => {
+                  cartProducts.setCartProducts(finalData);
+                }}
+              >
+                Add to cart
+              </Button>
             </section>
           </Container>
         </Container>

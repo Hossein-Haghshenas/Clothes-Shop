@@ -3,7 +3,6 @@ import { Button, Container } from "../utils";
 
 const CartFooter = () => {
   const cartProducts = useCartStore();
-  console.log(cartProducts);
 
   return (
     <>

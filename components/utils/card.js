@@ -47,11 +47,11 @@ const Card = ({ data }) => {
           </Container>
           <Container flex col gap2>
             <span className="flex items-center p-1">
-              {[...Array(rate)].map(() => (
-                <AiFillStar className="text-yellow-400" />
+              {[...Array(rate)].map((item, index) => (
+                <AiFillStar key={index} className="text-yellow-400" />
               ))}
-              {[...Array(5 - rate)].map(() => (
-                <AiOutlineStar className="text-yellow-400" />
+              {[...Array(5 - rate)].map((item, index) => (
+                <AiOutlineStar key={index} className="text-yellow-400" />
               ))}
               <span className="p-2 text-gray-600 text-sm">({count})</span>
             </span>
@@ -59,7 +59,6 @@ const Card = ({ data }) => {
               <Button
                 onClick={() => {
                   cartProducts.setCartProducts(data);
-                  cartProducts.setGetTotals();
                 }}
               >
                 Buy Now

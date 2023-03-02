@@ -4,7 +4,7 @@ import bannerImg from "../public/image/about/banner.png";
 import newsLetterImg from "../public/image/productsBanner.png";
 import firstSectionImg from "../public/image/about/a6.jpg";
 import secondSectionVideo from "../public/image/about/1.mp4";
-import Newsletter from "../components/about/newsLetter";
+import Newsletter from "../components/about/newsletter";
 
 const firstSection = {
   image: {

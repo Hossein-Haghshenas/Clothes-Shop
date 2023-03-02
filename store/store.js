@@ -53,9 +53,26 @@ export const useCartStore = create((set) => ({
     } else {
       products[itemIndex].productCount += 1;
     }
+    useCartStore.getState((state) => state).setGetTotals();
   },
-  removeCartProducts: (product) => {
-    set((state) => ({ cart: [...state.cart.filter((item) => item !== product)] }));
+  setCartProductsCount: (id, plus) => {
+    const products = useCartStore.getState((state) => state).cart;
+    const itemIndex = products.findIndex((item) => item.id === id);
+
+    if (plus) {
+      products[itemIndex].productCount += 1;
+    } else {
+      if (products[itemIndex].productCount === 1) {
+        useCartStore.getState((state) => state).removeCartProducts(id);
+      } else {
+        products[itemIndex].productCount -= 1;
+      }
+    }
+    useCartStore.getState((state) => state).setGetTotals();
+  },
+  removeCartProducts: (id) => {
+    set((state) => ({ cart: [...state.cart.filter((item) => item.id !== id)] }));
+    useCartStore.getState((state) => state).setGetTotals();
   },
   removeAllCartProducts: () => set({ cart: [] }),
   setGetTotals: function () {
@@ -64,7 +81,6 @@ export const useCartStore = create((set) => ({
     const amounts =
       products.length !== 0 ? products.map((product) => product.price.replace(",", ".") * product.productCount).reduce((a, b) => a + b) : 0;
     const counts = products.length !== 0 ? products.map((product) => product.productCount).reduce((a, b) => a + b) : 0;
-    console.log(counts);
 
     set({ cartTotalCount: counts, cartTotalAmount: amounts });
   },

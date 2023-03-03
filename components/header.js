@@ -32,14 +32,14 @@ const Header = () => {
           <span className="font-bold">H & N</span>
         </section>
         {/* header menu */}
-        <motion.section
-          className={clsx("block sm:hidden z-10", showMenu && "bg-sky-200 sm:!block absolute top-16 left-0 py-5 w-full")}
-          animate={{ height: showMenu ? "10rem" : "2rem" }}
-        >
-          <ul className={clsx("flex sm:flex-col justify-center items-center gap-4 md:gap-1")}>
+        <section className={clsx("block sm:hidden z-10", showMenu && "bg-sky-200 sm:!block absolute top-16 left-0 w-full")}>
+          <motion.ul
+            className={clsx("flex sm:flex-col justify-center items-center gap-4 md:gap-1")}
+            animate={{ height: showMenu ? "10rem" : "2rem" }}
+          >
             {menu?.map((item) => (
               <motion.li
-                className="px-4 md:px-2 py-1 rounded-xl bg-sky-200"
+                className="px-4 md:px-2 py-1 rounded-xl bg-sky-200 sm:bg-transparent"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 whileHover={{ backgroundColor: "#9bc8ffff", transition: { duration: 0.5 } }}
@@ -48,8 +48,8 @@ const Header = () => {
                 <Link href={item.url}>{item.name}</Link>
               </motion.li>
             ))}
-          </ul>
-        </motion.section>
+          </motion.ul>
+        </section>
         <section className="flex items-center justify-center gap-3">
           <section>
             {status === "unauthenticated" ? (

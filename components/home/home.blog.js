@@ -9,15 +9,14 @@ const HomeBlog = ({ blogData }) => {
         <section>
           <h3 className="font-bold text-[25px]">Our Blog</h3>
         </section>
-        <Container flex justifyCenter gap1 wrap>
+        <Container flex justifyCenter gap3 wrap>
           {blogData?.map((product) => {
             const { id, title, description, image } = product;
-            console.log(product);
 
             return (
-              <Container className="w-[20rem] h-[28rem] rounded-lg shadow-xl" flex col gap1 key={id}>
+              <Container className="w-[20rem] sm:w-[17rem] h-[28rem] sm:h-[26.5rem] rounded-lg shadow-xl" flex col gap1 key={id}>
                 <section>
-                  <Image className="rounded-xl w-full h-[14rem]" width="400" height="300" src={image} alt={title} />
+                  <Image className="rounded-t-xl shadow-md w-full h-[14rem]" width="400" height="300" src={image} alt={title} />
                 </section>
                 <section className="flex justify-around ">
                   <p>{truncate(title, { length: 35 })}</p>

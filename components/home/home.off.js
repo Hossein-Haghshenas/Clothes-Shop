@@ -12,7 +12,7 @@ const HomeOff = () => {
     <>
       <Container wFull flex justifyCenter>
         <Banner
-          className="relative my-10 mx-4 w-[60rem] h-[30rem] md:w-[30rem] md:h-15rem"
+          className="relative my-10 mx-4 w-[60rem] h-[30rem] md:w-[30rem] md:h-[15rem]"
           image={offBanner}
           imageClassName="w-full h-[30rem] md:h-[15rem] rounded-none"
           element={

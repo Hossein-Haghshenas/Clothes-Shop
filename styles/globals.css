@@ -9,3 +9,13 @@
 body {
   background-color: #d7ecffc9;
 }
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  width: 10px;
+  background: #9bc8ff;
+  border-radius: 10px;
+}

@@ -19,8 +19,6 @@ const ProductDetails = () => {
     setFinalData(filteredData[0]);
   }, [productsData]);
 
-  console.log(typeof finalData);
-
   if (typeof finalData !== "object") {
     return (
       <Wrapper className="min-h-[34.2vh]">

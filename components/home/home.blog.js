@@ -21,7 +21,7 @@ const HomeBlog = ({ blogData }) => {
               return (
                 <Container className="w-[20rem] sm:w-[17rem] h-[28rem] sm:h-[26.5rem] rounded-lg shadow-xl" flex col gap1 key={id}>
                   <section>
-                    <Image className="rounded-t-xl shadow-md w-full h-[14rem]" width="400" height="300" src={image} alt={title} />
+                    <Image className="rounded-t-xl shadow-md w-full h-[14rem] object-fill" width="400" height="300" src={image} alt={title} />
                   </section>
                   <section className="flex justify-around ">
                     <p>{truncate(title, { length: 35 })}</p>

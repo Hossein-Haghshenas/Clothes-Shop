@@ -18,7 +18,7 @@ const ProductsCategory = ({ categories }) => {
                   <Container className="bg-slate-300 transition ease-in delay-150 hover:bg-sky-200 cursor-pointer" flex gap1>
                     <section>
                       <Image
-                        className="w-[10rem] sm:w-[8rem] h-[10rem]"
+                        className="w-[10rem] sm:w-[8rem] h-[10rem] object-fill"
                         src={image}
                         width={400}
                         height={400}

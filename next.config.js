@@ -3,7 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ["images.unsplash.com", "cdn.glitch.global", "res.cloudinary.com"],
-    disableStaticImages: true,
   },
   webpack: (config, options) => {
     config.module.rules.push({
@@ -13,7 +12,6 @@ const nextConfig = {
         filename: "static/[hash][ext]",
       },
     });
-
     return config;
   },
 };

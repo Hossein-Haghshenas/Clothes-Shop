@@ -5,7 +5,7 @@ import Container from "./container";
 const Loading = () => {
   return (
     <Container flex justifyCenter alignCenter>
-      <Image src={loadingGif} />
+      <Image src={loadingGif} alt="loading" priority="fold" />
     </Container>
   );
 };

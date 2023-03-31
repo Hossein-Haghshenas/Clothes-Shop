@@ -26,23 +26,23 @@ const Header = () => {
 
   return (
     <>
-      <header className="w-full flex justify-between items-center relative bg-sky-200 py-4 px-3 shadow-md z-20">
+      <header className="w-full flex justify-between items-center relative bg-[#edc90f] py-4 px-3 shadow-md z-20">
         {/* logo */}
         <section>
           <span className="font-bold">H & N</span>
         </section>
         {/* header menu */}
-        <section className={clsx("block sm:hidden z-10", showMenu && "bg-sky-200 sm:!block absolute top-16 left-0 w-full")}>
+        <section className={clsx("block sm:hidden z-10", showMenu && "bg-[#edc90f] sm:!block absolute top-16 left-0 w-full")}>
           <motion.ul
             className={clsx("flex sm:flex-col justify-center items-center gap-4 md:gap-1")}
             animate={{ height: showMenu ? "10rem" : "2rem" }}
           >
             {menu?.map((item) => (
               <motion.li
-                className="px-4 md:px-2 py-1 rounded-xl bg-sky-200 sm:bg-transparent"
+                className="px-4 md:px-2 py-1 rounded-xl bg-[#edc90f] sm:bg-transparent"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                whileHover={{ backgroundColor: "#9bc8ffff", transition: { duration: 0.5 } }}
+                whileHover={{ backgroundColor: "#333", color: "#fff", transition: { duration: 0.5 } }}
                 key={item.id}
               >
                 <Link href={item.url}>{item.name}</Link>
@@ -65,7 +65,7 @@ const Header = () => {
           <section>
             <button type="button" onClick={() => cartProducts.setOpenCart()}>
               <AiOutlineShoppingCart className="w-8 h-8" />
-              <span className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-[#a50aff] border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
+              <span className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-[#650775] border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
                 {cartProducts?.cartTotalCount}
               </span>
             </button>

@@ -15,7 +15,7 @@ const ProductsCategory = ({ categories }) => {
               const { id, title, image, productsCount } = category;
               return (
                 <Link className="w-[45%] md:w-full" href={`products/${title}`} key={id}>
-                  <Container className="bg-slate-300 transition ease-in delay-150 hover:bg-sky-200 cursor-pointer" flex gap1>
+                  <Container className="bg-[#f7f7f7] transition ease-in delay-150 hover:bg-[#fff] cursor-pointer" flex gap1>
                     <section>
                       <Image
                         className="w-[10rem] sm:w-[8rem] h-[10rem] object-fill"

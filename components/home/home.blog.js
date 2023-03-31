@@ -19,7 +19,7 @@ const HomeBlog = ({ blogData }) => {
               const { id, title, description, image } = product;
 
               return (
-                <Container className="w-[20rem] sm:w-[17rem] h-[28rem] sm:h-[26.5rem] rounded-lg shadow-xl" flex col gap1 key={id}>
+                <Container className="bg-[#f7f7f7] w-[20rem] sm:w-[17rem] h-[28rem] sm:h-[26.5rem] rounded-lg shadow-xl" flex col gap1 key={id}>
                   <section>
                     <Image className="rounded-t-xl shadow-md w-full h-[14rem] object-fill" width="400" height="300" src={image} alt={title} />
                   </section>

@@ -21,7 +21,7 @@ const HomeOff = () => {
                 <h3 className="text-white text-[30px] md:text-[21px]">
                   UP TO 70% OFF <br /> ALL ITEM SALE
                 </h3>
-                <Button>Shop Now</Button>
+                <Button className="!bg-white text-black">Shop Now</Button>
               </section>
             </section>
           }

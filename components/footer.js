@@ -5,7 +5,7 @@ import { FooterMenu } from "./utils";
 
 const Footer = () => {
   return (
-    <footer className="bg-sky-200 pt-14 pb-4 px-8 sm:px-4">
+    <footer className="bg-[#cfcfcf] pt-14 pb-4 px-8 sm:px-4">
       <Container flex col justifyCenter alignCenter gap2>
         <Container className="md:flex-col" flex alignCenter gap3>
           <Container flex col gap1>

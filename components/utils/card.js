@@ -30,7 +30,7 @@ const Card = ({ data }) => {
 
   return (
     <>
-      <Container className="w-[20rem] border-[1px] border-slate-300 rounded transition-shadow duration-300 hover:shadow-2xl" flex col>
+      <Container className="w-[20rem] border-[1px] border-slate-300 bg-[#f7f7f7] rounded transition-shadow duration-300 hover:shadow-2xl" flex col>
         <section className="relative">
           <Image className="w-full h-[15rem] rounded-t" src={image} width={400} height={400} alt={title} placeholder="blur" blurDataURL={image} />
           <span onClick={likeHandler} className="absolute top-4 right-4 text-[1.5rem] cursor-pointer">

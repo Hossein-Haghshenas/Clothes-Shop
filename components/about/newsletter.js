@@ -19,7 +19,7 @@ const Newsletter = () => {
         </section>
         <section className="flex justify-center">
           <input className="p-2 h-[2.5rem]" type="text" />
-          <Button className="py-2 px-8 bg-sky-600 text-white !rounded-none">Sign Up</Button>
+          <Button className="py-2 px-8 !bg-[#edc90f] text-black !rounded-none">Sign Up</Button>
         </section>
       </Container>
     </>

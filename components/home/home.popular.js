@@ -24,9 +24,15 @@ const HomePopular = ({ popularData }) => {
                 category,
               } = product;
               return (
-                <Container className="w-[20rem] sm:w-[15rem] rounded-lg shadow-xl" flex col gap1 key={id}>
+                <Container className="bg-[#f7f7f7] w-[20rem] sm:w-[15rem] rounded-lg shadow-xl" flex col gap1 key={id}>
                   <section>
-                    <Image className="rounded-t-xl shadow-md w-full h-[16rem] sm:h-[14rem] object-fill" width="400" height="300" src={image} alt={title} />
+                    <Image
+                      className="rounded-t-xl shadow-md w-full h-[16rem] sm:h-[14rem] object-fill"
+                      width="400"
+                      height="300"
+                      src={image}
+                      alt={title}
+                    />
                   </section>
                   <section className="flex justify-around items-center pb-2">
                     <RateStars rate={rate} count={count} />

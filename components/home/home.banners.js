@@ -26,7 +26,7 @@ const HomeBanners = () => {
   return (
     <>
       <Banner
-        className="relative w-full bg-sky-200 !rounded-none h-[32rem] lg:h-[25rem] sm:h-[15rem]"
+        className="relative w-full bg-[#edc90f] !rounded-none h-[32rem] lg:h-[25rem] sm:h-[15rem]"
         image={mainImageDetails}
         imageClassName="absolute right-32 lg:right-8 md:right-4 sm:right-8 bottom-0 w-[25rem] lg:w-[20rem] sm:w-[12rem]"
         element={

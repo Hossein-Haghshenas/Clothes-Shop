@@ -11,7 +11,7 @@ const ProductsBanner = () => {
     <>
       <Container flex justifyCenter>
         <Banner
-          className="relative w-full bg-sky-200 h-[25rem] lg:h-[18rem] sm:h-[12rem] m-8"
+          className="relative w-full bg-[#2b2b2b] text-white h-[25rem] lg:h-[18rem] sm:h-[12rem] m-8"
           image={headphoneBanner}
           imageClassName="absolute right-32 lg:right-4 md:right-4 sm:right-0 bottom-0 w-[25rem] lg:w-[20rem] sm:w-[12rem]"
           element={
@@ -20,7 +20,7 @@ const ProductsBanner = () => {
                 Grab Upto 50% Off On <br /> Selected Headphone
               </h1>
               <section className="w-28">
-                <Button>Buy Now</Button>
+                <Button className="!bg-[#edc90f] text-black">Buy Now</Button>
               </section>
             </section>
           }

@@ -1,7 +1,7 @@
 import { Banner, Wrapper } from "../components/utils";
 import AboutSection from "../components/about/about.section";
 import bannerImg from "../public/image/about/banner.png";
-import firstSectionImg from "../public/image/about/a6.jpg";
+import firstSectionImg from "../public/image/about/a6.png";
 import secondSectionVideo from "../public/image/about/1.mp4";
 import Newsletter from "../components/about/newsletter";
 
@@ -40,6 +40,7 @@ const About = () => {
             </>
           }
           image={firstSection.image}
+          imageClassName="w-full min-w-[28rem] md:min-w-[15rem] sm:min-w-none"
         />
         <AboutSection
           containerClassName="flex !flex-col-reverse mt-[5rem] mx-4"

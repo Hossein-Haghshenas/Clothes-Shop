@@ -17,7 +17,7 @@ const Newsletter = () => {
             Get E-mails updates about our latest shop and <span className="text-orange-400">special offers</span>
           </p>
         </section>
-        <section className="flex justify-center">
+        <section className="flex justify-center md:w-full">
           <input className="p-2 h-[2.5rem]" type="text" />
           <Button className="py-2 px-8 !bg-[#edc90f] text-black !rounded-none">Sign Up</Button>
         </section>

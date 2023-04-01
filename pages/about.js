@@ -18,6 +18,7 @@ const About = () => {
     <>
       <Wrapper>
         <Banner
+          priority="fold"
           imageClassNameWD="!rounded-none"
           width="100%"
           imageWidth="1000"

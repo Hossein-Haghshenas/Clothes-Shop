@@ -7,11 +7,11 @@ import { Wrapper } from "../components/utils";
 const Home = () => {
   const [popularProducts, setPopularProducts] = useState([]);
   const [blogPosts, setBlogPosts] = useState([]);
-  const productsData = useProductsStore().products;
+  const productsData = useProductsStore();
 
   useEffect(() => {
-    setPopularProducts(productsData?.slice(0, 6));
-    setBlogPosts(productsData?.slice(0, 6));
+    setPopularProducts(productsData?.products.slice(Math.floor(Math.random() * 6), Math.floor(Math.random() * 18)));
+    setBlogPosts(productsData?.posts);
   }, [productsData]);
 
   return (

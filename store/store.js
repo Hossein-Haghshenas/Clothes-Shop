@@ -1,20 +1,26 @@
 import { create } from "zustand";
-import { getAllProducts, getCategories } from "../api/products";
+import { getData } from "../api/products";
 
 export const useProductsStore = create((set) => ({
   products: [],
+  posts: [],
   categories: [],
   getProducts: async () => {
-    const res = getAllProducts();
+    const res = getData("products");
     res.then((res) => set({ products: res }));
   },
+  getPosts: async () => {
+    const res = getData("blogPosts");
+    res.then((res) => set({ posts: res }));
+  },
   getCategories: async () => {
-    const res = getCategories();
+    const res = getData("categories");
     res.then((res) => set({ categories: res }));
   },
 }));
 
 useProductsStore.getState().getProducts();
+useProductsStore.getState().getPosts();
 useProductsStore.getState().getCategories();
 
 export const useFavoritesStore = create((set) => ({

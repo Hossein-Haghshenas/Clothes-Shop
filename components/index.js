@@ -12,3 +12,5 @@ export { default as HomeBlog } from "./home/home.blog";
 // products page
 export { default as ProductsBanner } from "./products/products.banner";
 export { default as ProductsCategory } from "./products/products.category";
+// under working page
+export { default as UnderWorking } from "./underWorking";

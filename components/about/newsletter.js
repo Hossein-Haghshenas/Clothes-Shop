@@ -18,7 +18,7 @@ const Newsletter = () => {
           </p>
         </section>
         <section className="flex justify-center md:w-full">
-          <input className="p-2 h-[2.5rem]" type="text" />
+          <input className="p-2 h-[2.5rem] sm:w-[10rem]" type="text" />
           <Button className="py-2 px-8 !bg-[#edc90f] text-black !rounded-none">Sign Up</Button>
         </section>
       </Container>

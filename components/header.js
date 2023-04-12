@@ -29,7 +29,7 @@ const Header = () => {
       <header className="w-full flex justify-between items-center relative bg-[#edc90f] py-4 px-3 shadow-md z-20">
         {/* logo */}
         <section>
-          <span className="font-bold">H & N</span>
+          <span className="font-bold border border-black rounded-full px-6 py-1">H & N</span>
         </section>
         {/* header menu */}
         <section className={clsx("block sm:hidden z-10", showMenu && "bg-[#edc90f] sm:!block absolute top-16 left-0 w-full")}>

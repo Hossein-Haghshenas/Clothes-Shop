@@ -50,10 +50,10 @@ const Header = () => {
             ))}
           </motion.ul>
         </section>
-        <section className="flex items-center justify-center gap-3">
+        <section className="flex items-center justify-center gap-3 sm:gap-3">
           <section>
             {status === "unauthenticated" ? (
-              <Button onClick={() => push("/login")}>
+              <Button className="sm:text-[12px]" onClick={() => push("/login")}>
                 <span className="pr-2">Login</span> | <span className="pl-2">Signup</span>
               </Button>
             ) : (
@@ -62,10 +62,10 @@ const Header = () => {
               </Button>
             )}
           </section>
-          <section>
+          <section className="flex items-center">
             <button type="button" onClick={() => cartProducts.setOpenCart()}>
-              <AiOutlineShoppingCart className="w-8 h-8" />
-              <span className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-[#650775] border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
+              <AiOutlineShoppingCart className="w-8 h-8 sm:w-6 sm:h-6" />
+              <span className="absolute inline-flex items-center justify-center w-6 h-6 sm:w-4 sm:h-4 text-xs sm:text-[8px] font-bold text-white bg-[#650775] border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
                 {cartProducts?.cartTotalCount}
               </span>
             </button>

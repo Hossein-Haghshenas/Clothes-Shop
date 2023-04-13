@@ -21,19 +21,16 @@ const Card = ({ data }) => {
   const favoriteProducts = useFavoritesStore();
   const cartProducts = useCartStore();
 
-  const likeHandler = () => {
-    favoriteProducts?.setFavorites(title, id);
-    localStorage.setItem("favorites", favoriteProducts.favorites);
-    const getFavorites = localStorage.getItem("favorites");
-    setFavorites(getFavorites);
-  };
+  useEffect(() => {
+    setFavorites(favoriteProducts.favorites);
+  }, [favoriteProducts]);
 
   return (
     <>
       <Container className="w-[20rem] border-[1px] border-slate-300 bg-[#f7f7f7] rounded transition-shadow duration-300 hover:shadow-2xl" flex col>
         <section className="relative">
           <Image className="w-full h-[15rem] rounded-t" src={image} width={400} height={400} alt={title} placeholder="blur" blurDataURL={image} />
-          <span onClick={likeHandler} className="absolute top-4 right-4 text-[1.5rem] cursor-pointer">
+          <span onClick={() => favoriteProducts.setFavorites(title, id)} className="absolute top-4 right-4 text-[1.5rem] cursor-pointer">
             {favorites?.includes(title) ? (
               <AiFillHeart className="text-red-600" />
             ) : (

@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { getData } from "../api/products";
+import { connectToLocalStorage } from "../helper/localStorage";
 
 export const useProductsStore = create((set) => ({
   products: [],
@@ -24,7 +25,7 @@ useProductsStore.getState().getPosts();
 useProductsStore.getState().getCategories();
 
 export const useFavoritesStore = create((set) => ({
-  favorites: [],
+  favorites: connectToLocalStorage("favoriteProducts"),
   setFavorites: function (title, id) {
     set((state) => {
       if (!this.favorites.includes(title)) {
@@ -37,6 +38,8 @@ export const useFavoritesStore = create((set) => ({
         };
       }
     });
+    const favoriteProducts = useFavoritesStore.getState((state) => state).favorites;
+    connectToLocalStorage("favoriteProducts", favoriteProducts);
   },
 }));
 

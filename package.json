@@ -1,6 +1,6 @@
 {
-  "name": "nike-shop",
-  "version": "0.1.0",
+  "name": "h&n-shop",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
